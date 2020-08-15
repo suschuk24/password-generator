@@ -5,7 +5,7 @@ var yesLowerCase
 var yesNumbers
 var yesSpecialChars
 
-// Arrays for character codes 
+// var setup for Arrays in future reference for ACSII translation
 var upperCase = charLoop(65, 90);
 var lowerCase = charLoop(97, 112);
 var numbers =  charLoop(48, 57);
