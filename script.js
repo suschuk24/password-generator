@@ -45,7 +45,11 @@ var generatePassword = function () {
     yesNumbers = window.confirm("Would you like to use numbers?");
     yesSpecialChars = window.confirm("Would you like to use special characters?");
   };
-
+  
+  // to do, this is for refacotring in the future.
+  // var options = [yesUpperCase, yesLowerCase, yesNumbers, yesSpecialChars]
+  // var selection = options.filter(option => option === true )
+  
   //user must validate at least one option
   if (!yesUpperCase && !yesLowerCase && !yesNumbers && !yesSpecialChars) {
     selection = window.alert("You need to choose at lease ONE charactrer type to use. Please try again.");
@@ -108,6 +112,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  console.log("writing password")
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -118,3 +123,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
