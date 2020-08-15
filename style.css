@@ -30,6 +30,8 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Card styles */
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -71,6 +73,8 @@ header {
   display: block;
   clear: both;
 }
+
+/* Button Styles */
 
 .btn {
   border: none;
@@ -118,6 +122,7 @@ button[disabled] {
   overflow: hidden;
 }
 
+/* Media Styles for Screen Sizes  */
 @media (max-width: 690px) {
   .btn {
     font-size: 1rem;
