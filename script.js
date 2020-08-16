@@ -28,7 +28,7 @@ function charLoop(low, high) {
 }
 
 // prompt options for generator
-var generatePassword = function () {
+function generatePassword() {
 
   //character length
   chooseCharLength = parseInt(prompt("How many characters would you like your password to be? Please choose a value betwen 8 and 128."));
@@ -45,58 +45,17 @@ var generatePassword = function () {
     yesNumbers = window.confirm("Would you like to use numbers?");
     yesSpecialChars = window.confirm("Would you like to use special characters?");
   };
+
   
   // to do, this is for refacotring in the future.
-  // var options = [yesUpperCase, yesLowerCase, yesNumbers, yesSpecialChars]
-  // var selection = options.filter(option => option === true )
+  var options = [yesUpperCase, yesLowerCase, yesNumbers, yesSpecialChars]
+  var selection = options.filter(option => option === true )
+
+  if (yesUpperCase) selection = [...selection, ...upperCase];
+  if (yesLowerCase) selection = [...selection, ...lowerCase];
+  if (yesNumbers) selection = [...selection, ...numbers];
+  if (yesSpecialChars) selection = [...selection, ...special];
   
-  //user must validate at least one option
-  if (!yesUpperCase && !yesLowerCase && !yesNumbers && !yesSpecialChars) {
-    selection = window.alert("You need to choose at lease ONE charactrer type to use. Please try again.");
-  }
-
-  //user selects all 4
-  else if (yesUpperCase && yesLowerCase && yesNumbers && yesSpecialChars) {
-    selection = upperCase.concat(lowerCase, numbers, special);
-  }
-
-  //user selects 3 of 4
-  else if (yesUpperCase && yesLowerCase && yesNumbers) {
-    selection = upperCase.concat(lowerCase, numbers);
-  } else if (yesUpperCase && yesLowerCase && yesSpecialChars) {
-    selection = upperCase.concat(lowerCase, special);
-  } else if (yesUpperCase && yesNumbers && yesSpecialChars) {
-    selection = upperCase.concat(numbers, special);
-  } else if (yesLowerCase &&yesNumbers && yesSpecialChars) {
-    selection = lowerCase.concat(numbers, special);
-  }
-
-  //user selects 2 of 4
-  else if (yesUpperCase && yesLowerCase) {
-    selection = upperCase.concat(lowerCase);
-  } else if (yesUpperCase && yesSpecialChars) {
-    selection = upperCase.concat(special);
-  } else if (yesUpperCase && yesNumbers) {
-    selection = upperCase.concat(numbers);
-  } else if (acceptLowercase && acceptNumeric) {
-    selection = lowercase.concat(numbers);
-  } else if (yesLowerCase && yesSpecialChars) {
-    selection = lowerCase.concat(special);
-  } else if (yesNumbers && yesSpecialChars) {
-    selection = numbers.concat(special);
-  }
-  
-  //user selects 1 of 4
-  else if (yesUpperCase) {
-    selection = upperCase;
-  } else if (yesLowerCase) {
-    selection = lowerCase;
-  } else if (yesNumbers) {
-    selection = numbers;
-  } else if (yesSpecialChars) {
-    selection = special;
-  };
-
   //create arry for password based on user input length
   var passwordGenerate = []
 
@@ -115,7 +74,6 @@ function writePassword() {
   console.log("writing password")
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
 
   passwordText.value = password;
 
